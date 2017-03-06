@@ -14,6 +14,8 @@
             [halti-builder.docker :refer [build-image tag-image push-image ping]]))
 
 
+(def WORKDIR "work")
+
 (def has-keyword? (flip contains?))
 
 (defn strip-control-chars [s]
@@ -93,7 +95,7 @@
   (info "Starting to build with ID:" build-id)
   (info "Git checkout from" (-> build :source_url))
   (status-update build-id "CHECKOUT" (-> build :source_url))
-  (let [source-path (-> build :path)
+  (let [source-path (str WORKDIR (-> build :path))
         source-address (-> build :source_url)
         source-name (-> build :name)
 

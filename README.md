@@ -13,6 +13,8 @@ docker build -t emblica/halti-builder .
 
 ## Usage
 
+Not yet for production / Work in process
+
 ```
 PORT=4041
 PRODUCTION=no
